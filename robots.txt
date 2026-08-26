@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://georgekorres-gr.vercel.app/sitemap.xml
