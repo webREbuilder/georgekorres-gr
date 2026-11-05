@@ -1,4 +1,27 @@
 <!DOCTYPE html><html lang="el"><head>
+<!-- WebRebuilder Analytics -->
+<script>(function(){
+  var P="cd06400e-5f40-406b-a539-dd3ed2435538",E="https://api.webrebuilder.com/api/track";
+  if(!P||!E)return;
+  function uid(){try{return crypto.randomUUID()}catch(e){return Date.now().toString(36)+Math.random().toString(36).slice(2)}}
+  function read(k,s){try{return (s?sessionStorage:localStorage).getItem(k)}catch(e){return null}}
+  function save(k,v,s){try{(s?sessionStorage:localStorage).setItem(k,v)}catch(e){}}
+  var vid=read("_wrv");if(!vid){vid=uid();save("_wrv",vid)}
+  var sid=read("_wrs",true);if(!sid){sid=uid();save("_wrs",sid,true)}
+  function send(d){try{d.pid=P;var b=JSON.stringify(d);
+    if(navigator.sendBeacon){navigator.sendBeacon(E,new Blob([b],{type:"text/plain"}))}
+    else{fetch(E,{method:"POST",body:b,headers:{"Content-Type":"text/plain"},keepalive:true,mode:"no-cors"})}}catch(e){}}
+  var eid=uid(),start=Date.now(),sent=false;
+  send({t:"pageview",eid:eid,p:location.pathname+location.search,r:document.referrer||"",vid:vid,sid:sid});
+  function dur(){if(sent)return;sent=true;send({t:"duration",eid:eid,d:Math.min(1800000,Date.now()-start)})}
+  addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")dur()});
+  addEventListener("pagehide",dur);
+  addEventListener("click",function(ev){try{var a=ev.target&&ev.target.closest?ev.target.closest("a,[data-wr-track]"):null;if(!a)return;
+    var href=a.getAttribute("href")||"",ext=false;
+    if(href){try{var u=new URL(href,location.href);ext=u.host!==location.host&&/^https?:/.test(u.protocol)}catch(e){}}
+    if(ext||a.hasAttribute("data-wr-track")){send({t:"click",p:location.pathname,target:href.slice(0,300),vid:vid,sid:sid})}}catch(e){}},true);
+})();</script>
+<!-- End WebRebuilder Analytics -->
 <meta property="og:url" content="https://georgekorres-gr.vercel.app/contact.html">
 <meta property="og:locale" content="el_GR">
 <meta name="abstract" content="Επικοινωνήστε με τον Δρ. Γιώργο Κορρέ για ραντεβού. Ξενοκράτους 41, Κολωνάκι, Αθήνα. Τηλ: +30 694 599 7916.">
